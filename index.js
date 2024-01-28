@@ -75,8 +75,7 @@ app.get('/random-verse', async (req, res) => {
 
             return [section, filteredSection];
         }
-        res.header("Access-Control-Allow-Origin", "*");
-        res.status(200).json({
+        res.header("Access-Control-Allow-Origin", "*").status(200).json({
             "book": randomBook,
             "chapter": randomChapter,
             "verse": randomVerse,
