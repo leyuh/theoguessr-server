@@ -28,6 +28,7 @@ router.post("/register", async (req, res) => {
     })
     await newUser.save();
 
+    res.header("Access-Control-Allow-Origin", "*");
     res.json({ message: "User created!" });
 })
 
@@ -52,6 +53,7 @@ router.post("/login", async (req, res ) => {
     }
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    res.header("Access-Control-Allow-Origin", "*");
     res.json({ token, userId: user._id });
 
 })

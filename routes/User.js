@@ -10,6 +10,8 @@ const router = express.Router();
 router.get("/get-users", async (req, res) => {
     try {
         const users = await UsersModel.find({});
+
+        res.header("Access-Control-Allow-Origin", "*");
         res.json(users);
     } catch (err) {
         res.json(err);
@@ -28,6 +30,7 @@ router.put("/post-points", verifyToken, async (req, res) => {
         await user.save();
 
         const result = await UsersModel.find({});
+        res.header("Access-Control-Allow-Origin", "*");
         res.json(result);
     } catch (err) {
         res.json(err);
