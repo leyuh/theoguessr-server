@@ -20,7 +20,7 @@ const VERSION = "de4e12af7f28f599-02";
 
 const key = process.env.API_KEY;
 
-route.get('/random-verse', async (req, res) => {
+app.get('/random-verse', async (req, res) => {
     try {
         let booksData = await axios.get(`https://api.scripture.api.bible/v1/bibles/${VERSION}/books?include-chapters=true`, {
             headers: {
