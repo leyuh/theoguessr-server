@@ -27,6 +27,7 @@ router.put("/post-points", verifyToken, async (req, res) => {
 
     try {
         const user = await UsersModel.findOne({ _id });
+        if (user.points.length >= 50) user.points.shift();
         user.points.push(newPoints);
         await user.save();
 
